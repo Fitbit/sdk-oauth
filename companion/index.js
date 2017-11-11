@@ -5,6 +5,7 @@ import { settingsStorage } from "settings";
 function fetchSleepData(accessToken)  {
   let todayDate = new Date().toISOString().slice(0,10); //YYYY-MM-DD
 
+  // Sleep API docs - https://dev.fitbit.com/reference/web-api/sleep/
   fetch(`https://api.fitbit.com/1.2/user/-/sleep/date/${todayDate}.json`, {
     method: "GET",
     headers: {
@@ -18,16 +19,11 @@ function fetchSleepData(accessToken)  {
     let myData = {
       totalMinutesAsleep: data.summary.totalMinutesAsleep
     }
-    sendVal(myData);
+    if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
+      messaging.peerSocket.send(myData);
+    }
   })
   .catch(err => console.log('[FETCH]: ' + err));
-}
-
-// Send data to the device
-function sendVal(data) {
-  if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
-    messaging.peerSocket.send(data);
-  }
 }
 
 // A user changes Settings
