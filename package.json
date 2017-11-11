@@ -1,8 +1,7 @@
 {
   "fitbit": {
-    "appUUID": "f09e8a1b-34dd-43bb-95c9-21c351ed4ed4",
     "appType": "app",
-    "appDisplayName": "Am I Tired?",
+    "appDisplayName": "OAuth Example",
     "iconFile": "resources/icon.png",
     "wipeColor": "#ffeb3b",
     "requestedPermissions": [
@@ -10,7 +9,7 @@
     ],
     "i18n": {
       "en": {
-        "name": "Am I Tired?"
+        "name": "OAuth Example"
       }
     }
   }
