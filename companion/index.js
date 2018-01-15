@@ -3,7 +3,8 @@ import { settingsStorage } from "settings";
 
 // Fetch Sleep Data from Fitbit Web API
 function fetchSleepData(accessToken)  {
-  let todayDate = new Date().toISOString().slice(0,10); //YYYY-MM-DD
+  let date = new Date();
+  let todayDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`; //YYYY-MM-DD
 
   // Sleep API docs - https://dev.fitbit.com/reference/web-api/sleep/
   fetch(`https://api.fitbit.com/1.2/user/-/sleep/date/${todayDate}.json`, {
