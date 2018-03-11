@@ -7,6 +7,10 @@
     "requestedPermissions": [
       "access_internet"
     ],
+    "buildTargets": [
+      "higgs",
+      "meson"
+    ],
     "i18n": {
       "en": {
         "name": "OAuth Example"
